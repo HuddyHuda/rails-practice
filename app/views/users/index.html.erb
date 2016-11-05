@@ -1,0 +1,13 @@
+<h1> This is the list of all users </h1>
+
+  <% @users.each do |user| %>
+  <h1>Username:  <%= user.Username %> </h1>
+    <%= user.Email %>
+    <%= user.Password %>
+    <%= user.Contact_number %>
+    <%= user.Gender %>
+    <%= user.Birth_date %>
+
+<% end %>
+
+</h1>

@@ -1,0 +1,42 @@
+<h1>Sign up form for new users</h1>
+
+<div class="container">
+<%= form_for @users do |f| %>
+
+<div class="row">
+
+<%= f.label :Username %>
+<%= f.text_field :Username %>
+
+  <%= f.label :Email %>
+  <%= f.text_field :Email%>
+
+  </div>
+
+<div class="row">
+  <%= f.label :Password %>
+  <%= f.text_field :Password%>
+
+  <%= f.label :Contact_number %>
+  <%= f.text_field :Contact_number%>
+</div>
+
+
+<div class="row">
+  <%= f.label :Gender %>
+<%= f.select :Gender, ['Female', 'Male'] %>
+
+  <%= f.label :Occupation %>
+  <%= f.text_field :Occupation%>
+
+  <%= f.label :Birth_date %>
+<%= f.date_select :Birth_date, {order: [:month, :day, :year], prompt: { day: 'Select day', month: 'Select month', year: 'Select year' }, start_year: Date.today.year - 18, end_year: Date.today.year - 100}, {required: true} %>
+</div>
+
+
+
+  <%= f.submit %>
+
+</div>
+
+<% end %>
