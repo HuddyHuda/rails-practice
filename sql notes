@@ -1,0 +1,218 @@
+
+/* creating table */
+
+CREATE TABLE instructors (
+id SERIAL NOT NULL,
+name TEXT NOT NULL,
+experience INT NOT NULL,
+website VARCHAR(50) NOT NULL
+
+)
+
+CREATE TABLE students (
+id SERIAL PRIMARY KEY NOT NULL,
+name VARCHAR(50) NOT NULL,
+age INT NOT NULL,
+address VARCHAR (50)
+)
+
+/* inserting data to table */
+
+INSERT INTO students
+VALUES(
+2,
+'Nancy Gong',
+40,
+'200 Horton Ave, Lynbrook, NY'
+)
+
+
+INSERT INTO students
+VALUES(
+3,
+'Laura Rossi',
+70,
+'Unlisted'
+)
+
+INSERT INTO students
+VALUES(
+4,
+'David Daniele',
+28,
+'300 Dannington Ln, Washington, DC'
+)
+
+INSERT INTO students
+VALUES(
+5,
+'Greg Fitzgerald',
+25,
+''
+)
+
+INSERT INTO students
+VALUES(
+6,
+'Randi Fitz',
+28,
+'Oceanside, NY'
+)
+
+
+
+INSERT INTO parents
+VALUES (
+1,
+'Joe Smith'
+)
+
+INSERT INTO instructors VALUES (
+1,
+'Prima Aulia Gusta',
+8,
+'http://www.prima.com'
+)
+
+
+INSERT INTO instructors VALUES(
+2,
+'Nurul Huda',
+3,
+'http://www.huddyhuda.com'
+)
+
+
+/* FIND DATA IN YOUR DATABASE */
+/* SELECT name FROM students
+- SELECT <field_name> FROM <table_name>
+- WHERE <field_name> <condition> <value> */
+/* - UPDATE RECORDS IN DB */
+/* UPDATE <table_name> SET <fieldname> = <value> */
+
+SELECT * from students WHERE age >= 27
+
+SELECT * from instructors
+WHERE name = "Prima Aulia Gusta"
+
+/* updating */
+
+UPDATE students
+SET age = 23
+WHERE NAME = 'Glen Choo'
+
+
+UPDATE students
+SET address = '25 Broadway, New York, NY'
+WHERE name = 'Randi Fitz'
+
+
+SELECT name,address FROM students
+WHERE age >= 30
+ORDER BY name ASC
+
+SELECT name FROM students WHERE name LIKE 'J%';
+
+/* select where students address is ny or dc */
+
+SELECT name FROM students WHERE address LIKE '%NY' or address LIKE '%DC%'
+
+
+CREATE TABLE books (
+  id SERIAL NOT NULL,
+  students_id INT NOT NULL
+)
+
+/* select from <table_name>
+INNER JOIN <table2>
+ON <tablename>.id = table2.student_id
+*/
+
+SELECT * from students
+INNER JOIN books
+ON students.id = books.student_id
+
+/* alter table name
+ADD name varchar (50)
+*/
+
+ALTER TABLE books
+ADD name VARCHAR(50);
+
+UPDATE books SET name = "sth" WHERE id > 0;
+
+SELECT parents.name AS "parents name", students.name AS "studen name" FROM students
+
+SELECT * from students
+INNER JOIN parents
+OR students.id = parents.student_id
+
+
+CREATE TABLE PARENTS (
+  id INT PRIMARY KEY NOT NULL,
+  name TEXT NOT NULL
+)
+
+/* primary key just use SERIAL*/
+
+INSERT INTO parents
+values (
+1,
+'Mr Tan'
+)
+
+INSERT INTO parents
+values (
+2,
+'Mr Loh'
+)
+
+ALTER TABLE students
+ADD parent_id INT
+
+UPDATE students
+SET parent_id = 1
+WHERE students.id < 4
+
+UPDATE students
+SET parent_id = 2
+WERE students.id > 3
+
+SELECT * FROM students
+INNER JOIN parents
+ON parents.id = students.parents_id
+WHERE parents.name = 'Mr Tan'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CREATE TABLE parents (
+  id SERIAL NOT NULL,
+  name TEXT NOT NULL
+)
+ALTER TABLE students
+UPDATE parent_id VARCHAR(50)
+
+ALTER TABLE students
+ADD name VARCHAR(50);
+
+UPDATE parents
+SET name = "Joe Smith"
+WHERE id > 0;
+
+UPDATE parents
+SET name = 'Smith'
+WHERE ID = 1;
