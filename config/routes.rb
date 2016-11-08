@@ -21,6 +21,8 @@ Rails.application.routes.draw do
 
   get '/ingredients', to: 'static_pages#ingredients'
 
+    get '/recipemaker', to: 'static_pages#recipemaker'
+
   get    '/login',   to: 'sessions#new'
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'

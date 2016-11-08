@@ -1,0 +1,63 @@
+
+
+header {
+  margin:0;
+  padding:0;
+  background-color:yellow;
+}
+
+// $ = variable in scss
+// nesting in css
+// selector {
+ // child {
+
+//}
+//}
+//mixin in scss
+
+@mixin border-radius ($radius,$color){
+-webkit-border-radius: $radius;
+-moz-border-radius: $radius;
+-ms-border-radius: $radius;
+border-radius: $radius;
+background: $color;
+}
+
+.box{
+@include border-radius(10px,red)
+}
+
+.rectangle {
+@include border-radius(20px,orange)
+}
+
+@mixin links($link, $visit, $hover, $active){
+ a {
+     color: $link;
+     &:visited {
+       color: $visit;
+     }
+     &:hover {
+       color: $hover;
+     }
+     &:active {
+       color: $active;
+     }
+   }
+
+}
+
+p {font-size:20px;
+color:blue;}
+
+span {
+  @extend p;
+}
+
+input {
+  @extend p;
+}
+
+.navbar-nav{
+  @include links(green,red,blue,orange)
+}

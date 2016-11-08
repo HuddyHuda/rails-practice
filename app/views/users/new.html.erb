@@ -1,6 +1,13 @@
-<h1>Sign up form for new users</h1>
+<header>hello this is a header </header>
 
 <div class="container">
+  <h1>Sign up form for new users</h1>
+
+  <div class="box"> yoyoyoyo</div>
+  <div class="rectangle">hehe</div>
+  <p>lorem ipsum yo</p>
+  <span><p>extend</p></span>
+
 <%= form_for @users do |f| %>
 
 <div class="row">
@@ -35,8 +42,10 @@
 
 
 
-  <%= f.submit %>
+<p>  <%= f.submit %></p>
 
 </div>
+
+  <%= render "partials/footer" %>
 
 <% end %>
